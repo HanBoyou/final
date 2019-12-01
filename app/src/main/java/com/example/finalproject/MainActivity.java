@@ -9,10 +9,16 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int difficulty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("difficulty")) {
+            difficulty = intent.getIntExtra("difficulty", R.id.radioButtonEasy);
+        } else difficulty = R.id.radioButtonEasy;
+
         Button buttonSettings = findViewById(R.id.buttonSettings);
         buttonSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -20,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 onClickSettings();
             }
         });
+
+
         Button buttonStart = findViewById(R.id.buttonStart);
         buttonSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +43,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
     private void onClickSettings() {
-        startActivity (new Intent(this, SettingsActivity.class));
+        Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra("difficulty", difficulty);
+        startActivity (intent);
+        finish();
     }
+
     private void onClickHighScore() {
         startActivity(new Intent(this, HighScoreActivity.class));
     }
+
     private void onClickGame() {
         startActivity(new Intent(this, GameActivity.class));
     }

@@ -26,13 +26,20 @@
                 android:id="@+id/difficultyGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:checkedButton="@id/radioButtonEasy">
 
                 <RadioButton
                     android:id="@+id/radioButtonEasy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="EASY" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NORMAL" />
 
                 <RadioButton
                     android:id="@+id/radioButtonHard"
@@ -42,6 +49,12 @@
             </RadioGroup>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
