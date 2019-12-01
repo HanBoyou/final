@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -16,9 +14,10 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        System.out.println(1);
 
 
-        RadioGroup difficultyGroup = findViewById(R.id.difficultyGroup);
+        RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
         difficultyGroup.check(getIntent().getIntExtra("difficulty", R.id.radioButtonEasy));
 
         Button save = findViewById(R.id.buttonSave);
@@ -30,7 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
     private void save() {
-        RadioGroup difficultyGroup = findViewById(R.id.difficultyGroup);
+        RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
         Intent intent = new Intent(this, MainActivity.class);
         switch (difficultyGroup.getCheckedRadioButtonId()) {
             case R.id.radioButtonHard : intent.putExtra("difficulty", R.id.radioButtonHard);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".highScoreActivity">
+    tools:context=".HighScoreActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,14 +19,14 @@
             android:text="Difficulty" />
 
         <RadioGroup
-            android:id="@+id/difficultyGroup"
+            android:id="@+id/difficultyGroupHS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:checkedButton="@id/radioButtonEasy">
+            android:checkedButton="@id/radioButtonEasyHS">
 
             <RadioButton
-                android:id="@+id/radioButtonEasy"
+                android:id="@+id/radioButtonEasyHS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="EASY" />
@@ -38,7 +38,7 @@
                 android:text="NORMAL" />
 
             <RadioButton
-                android:id="@+id/radioButtonHard"
+                android:id="@+id/radioButtonHardHS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="HARD" />

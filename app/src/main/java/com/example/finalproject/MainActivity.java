@@ -1,3 +1,4 @@
+
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button buttonStart = findViewById(R.id.buttonStart);
-        buttonSettings.setOnClickListener(new View.OnClickListener() {
+        buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onClickGame();
             }
         });
         Button buttonHighScore = findViewById(R.id.buttonHighScores);
-        buttonSettings.setOnClickListener(new View.OnClickListener() {
+        buttonHighScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onClickHighScore();
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         intent.putExtra("difficulty", difficulty);
         startActivity (intent);
+        System.out.println(2);
         finish();
     }
 

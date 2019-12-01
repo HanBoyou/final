@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".highScoreActivity"></activity>
-        <activity android:name=".settingsActivity" />
-        <activity android:name=".gameActivity" />
+        <activity android:name=".HighScoreActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".GameActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
