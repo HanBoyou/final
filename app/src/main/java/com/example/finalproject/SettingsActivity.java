@@ -14,7 +14,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        System.out.println(1);
+        System.out.println(getIntent().getIntExtra("difficulty", R.id.radioButtonEasy)
+                == R.id.radioButtonEasy);
 
 
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
@@ -31,9 +32,12 @@ public class SettingsActivity extends AppCompatActivity {
     private void save() {
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
         Intent intent = new Intent(this, MainActivity.class);
+        System.out.print("check normal ");
+        System.out.println(difficultyGroup.getCheckedRadioButtonId() == R.id.radioButtonNormal);
         switch (difficultyGroup.getCheckedRadioButtonId()) {
-            case R.id.radioButtonHard : intent.putExtra("difficulty", R.id.radioButtonHard);
-            case R.id.radioButtonNormal :intent.putExtra("difficulty", R.id.radioButtonNormal);
+
+            case R.id.radioButtonHard : intent.putExtra("difficulty", R.id.radioButtonHard); break;
+            case R.id.radioButtonNormal : intent.putExtra("difficulty", R.id.radioButtonNormal); break;
             default : intent.putExtra("difficulty", R.id.radioButtonEasy);
         }
         startActivity(intent);

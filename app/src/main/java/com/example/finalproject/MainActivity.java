@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
             difficulty = intent.getIntExtra("difficulty", R.id.radioButtonEasy);
         } else difficulty = R.id.radioButtonEasy;
 
+
         Button buttonSettings = findViewById(R.id.buttonSettings);
         buttonSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         intent.putExtra("difficulty", difficulty);
         startActivity (intent);
-        System.out.println(2);
         finish();
     }
 
