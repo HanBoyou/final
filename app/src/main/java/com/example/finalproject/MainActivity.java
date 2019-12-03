@@ -8,9 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private int difficulty;
+    private int[] easyList = new int[10];
+    private int[] normalList = new int[10];
+    private int[] hardList = new int[10];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +23,22 @@ public class MainActivity extends AppCompatActivity {
         if (intent != null && intent.hasExtra("difficulty")) {
             difficulty = intent.getIntExtra("difficulty", R.id.radioButtonEasy);
         } else difficulty = R.id.radioButtonEasy;
+
+        if (intent.hasExtra("easyList")) {
+            easyList = intent.getIntArrayExtra("easyList");
+            normalList = intent.getIntArrayExtra("normalList");
+            hardList = intent.getIntArrayExtra("hardList");
+        } else {
+            for (int i = 0; i < easyList.length; i++) {
+                easyList[i] = -1; // to be replaced with file actions.
+            }
+            for (int i = 0; i < normalList.length; i++) {
+                normalList[i] = -1; // to be replaced with file actions.
+            }
+            for (int i = 0; i < hardList.length; i++) {
+                hardList[i] = -1; // to be replaced with file actions.
+            }
+        }
 
 
         Button buttonSettings = findViewById(R.id.buttonSettings);
@@ -55,7 +75,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClickHighScore() {
-        startActivity(new Intent(this, HighScoreActivity.class));
+        Intent intent = new Intent(this, HighScoreActivity.class);
+        for (int i : easyList) {
+            System.out.println(i);
+        }
+
+        intent.putExtra("easyList", easyList);
+        intent.putExtra("normalList", normalList);
+        intent.putExtra("hardList", hardList);
+        startActivity(intent);
     }
 
     private void onClickGame() {

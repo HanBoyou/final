@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void save() {
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
         Intent intent = new Intent(this, MainActivity.class);
-        System.out.print("check normal ");
+//        System.out.print("check normal ");
         System.out.println(difficultyGroup.getCheckedRadioButtonId() == R.id.radioButtonNormal);
         switch (difficultyGroup.getCheckedRadioButtonId()) {
 
