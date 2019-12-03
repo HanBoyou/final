@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClickGame() {
-        Intent intent = new Intent(this, HighScoreActivity.class);
+        Intent intent = new Intent(this, GameActivity.class);
         putAllExtra(intent);
         startActivity(intent);
     }
