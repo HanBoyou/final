@@ -10,12 +10,20 @@ import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    private int[] easyList;
+    private int[] normalList;
+    private int[] hardList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         System.out.println(getIntent().getIntExtra("difficulty", R.id.radioButtonEasy)
                 == R.id.radioButtonEasy);
+        Intent intent = getIntent();
+        easyList = intent.getIntArrayExtra("easyList");
+        normalList = intent.getIntArrayExtra("normalList");
+        hardList = intent.getIntArrayExtra("hardList");
 
 
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
@@ -40,6 +48,9 @@ public class SettingsActivity extends AppCompatActivity {
             case R.id.radioButtonNormal : intent.putExtra("difficulty", R.id.radioButtonNormal); break;
             default : intent.putExtra("difficulty", R.id.radioButtonEasy);
         }
+        intent.putExtra("easyList", easyList);
+        intent.putExtra("normalList", normalList);
+        intent.putExtra("hardList", hardList);
         startActivity(intent);
         finish();
     }

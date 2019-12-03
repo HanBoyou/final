@@ -23,7 +23,6 @@ public class HighScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_high_score);
 
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
-        difficultyGroup.check(getIntent().getIntExtra("difficulty", R.id.radioButtonEasyHS));
 
         Intent intent = getIntent();
         easyList = intent.getIntArrayExtra("easyList");
@@ -102,8 +101,8 @@ public class HighScoreActivity extends AppCompatActivity {
     private void updateList() {
         RadioGroup difficultyGroup = findViewById(R.id.difficultyGroupHS);
         switch (difficultyGroup.getCheckedRadioButtonId()) {
-                   case R.id.radioButtonNormalHS : viewNormal(); break;
-                   case R.id.radioButtonHardHS : viewHard(); break;
+            case R.id.radioButtonNormalHS : viewNormal(); break;
+            case R.id.radioButtonHardHS : viewHard(); break;
             default : viewEasy();
         }
     }

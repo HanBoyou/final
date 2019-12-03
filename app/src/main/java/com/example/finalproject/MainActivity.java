@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
             hardList = intent.getIntArrayExtra("hardList");
         } else {
             for (int i = 0; i < easyList.length; i++) {
-                easyList[i] = -1; // to be replaced with file actions.
+                easyList[i] = i; // to be replaced with file actions.
             }
             for (int i = 0; i < normalList.length; i++) {
-                normalList[i] = -1; // to be replaced with file actions.
+                normalList[i] = i + 1;
             }
             for (int i = 0; i < hardList.length; i++) {
-                hardList[i] = -1; // to be replaced with file actions.
+                hardList[i] = i + 2;
             }
         }
 
@@ -69,24 +69,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickSettings() {
         Intent intent = new Intent(this, SettingsActivity.class);
-        intent.putExtra("difficulty", difficulty);
+        putAllExtra(intent);
         startActivity (intent);
         finish();
     }
 
     private void onClickHighScore() {
         Intent intent = new Intent(this, HighScoreActivity.class);
-        for (int i : easyList) {
-            System.out.println(i);
-        }
-
-        intent.putExtra("easyList", easyList);
-        intent.putExtra("normalList", normalList);
-        intent.putExtra("hardList", hardList);
+        putAllExtra(intent);
+        int a = intent.getIntExtra("difficulty", -1);
+        System.out.println(a == R.id.radioButtonEasy);
         startActivity(intent);
     }
 
     private void onClickGame() {
-        startActivity(new Intent(this, GameActivity.class));
+        Intent intent = new Intent(this, HighScoreActivity.class);
+        putAllExtra(intent);
+        startActivity(intent);
+    }
+
+    private void putAllExtra(Intent intent) {
+        intent.putExtra("difficulty", difficulty);
+        intent.putExtra("easyList", easyList);
+        intent.putExtra("normalList", normalList);
+        intent.putExtra("hardList", hardList);
     }
 }
