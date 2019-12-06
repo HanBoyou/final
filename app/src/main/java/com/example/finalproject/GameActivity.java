@@ -11,6 +11,10 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
         ConstraintLayout ball = findViewById(R.id.ball);
+        Ball ball1 = new Ball(this);
+        ball.addView(ball1);
+
     }
 }

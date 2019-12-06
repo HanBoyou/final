@@ -25,6 +25,9 @@ public class Ball extends View {
     public Ball(Context context, AttributeSet set) {
         super(context, set);
     }
+    public Ball(Context context) {
+        super(context);
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
