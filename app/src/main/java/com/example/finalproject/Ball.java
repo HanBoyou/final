@@ -19,6 +19,7 @@ public class Ball extends View {
 
     public float currentX = 100;
     public float currentY = 200;
+
     // draw pen
     Paint p = new Paint();
 
@@ -49,6 +50,7 @@ public class Ball extends View {
         this.currentY = event.getY();
         this.invalidate();
         if (currentX > 200 && currentX < 500 && currentY > 600 && currentY < 800){
+
             System.exit(0);
         }
         return true;
