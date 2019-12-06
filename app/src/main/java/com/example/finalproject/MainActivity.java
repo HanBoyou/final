@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onClickSettings();
+                Log.i("Settings Button", "Displays settings interface and store settings profile");
             }
         });
 
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onClickGame();
+                Log.i("Start Button", "Start game with settings profile");
             }
         });
         Button buttonHighScore = findViewById(R.id.buttonHighScores);
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onClickHighScore();
+                Log.i("High Score Button", "Show High Score Board for different difficulties");
             }
         });
     }
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GameActivity.class);
         putAllExtra(intent);
         startActivity(intent);
+
     }
 
     private void putAllExtra(Intent intent) {

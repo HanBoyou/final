@@ -22,7 +22,7 @@ public class Ball extends View {
     // draw pen
     Paint p = new Paint();
 
-    public Ball(Context context,AttributeSet set) {
+    public Ball(Context context, AttributeSet set) {
         super(context, set);
     }
 
