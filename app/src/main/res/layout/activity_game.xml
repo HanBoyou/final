@@ -1,41 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="8dp"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <Chronometer
         android:id="@+id/chronometer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="19dp"
+        tools:layout_conversion_absoluteWidth="46dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ball"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        tools:context=".GameActivity" />
+        android:layout_height="wrap_content"
+        tools:context=".GameActivity"
+        tools:layout_conversion_absoluteHeight="731dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+<!--&lt;!&ndash;<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+<!--&lt;!&ndash;    xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;    xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:padding="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;    android:orientation="vertical">&ndash;&gt;-->
 
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
-    <!--    android:id="@+id/ball"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="match_parent"-->
-    <!--    tools:context=".GameActivity">-->
+<!--&lt;!&ndash;    <Chronometer&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/chronometer"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content" />&ndash;&gt;-->
 
-    <!--<Chronometer-->
-    <!--android:id="@+id/chronometer"-->
-    <!--    android:layout_width="wrap_content"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent"-->
-    <!--    app:layout_constraintHorizontal_bias="0.5"-->
-    <!--    app:layout_constraintStart_toStartOf="parent"-->
-    <!--    app:layout_constraintTop_toTopOf="parent" />-->
+<!--&lt;!&ndash;    <androidx.constraintlayout.widget.ConstraintLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/ball"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:context=".GameActivity" />&ndash;&gt;-->
 
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+
+<!--    &lt;!&ndash;<?xml version="1.0" encoding="utf-8"?>&ndash;&gt;-->
+<!--    &lt;!&ndash;<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+<!--    &lt;!&ndash;    xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+<!--    &lt;!&ndash;    xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
+<!--    &lt;!&ndash;    android:id="@+id/ball"&ndash;&gt;-->
+<!--    &lt;!&ndash;    android:layout_width="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;    android:layout_height="match_parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;    tools:context=".GameActivity">&ndash;&gt;-->
+
+<!--    &lt;!&ndash;<Chronometer&ndash;&gt;-->
+<!--    &lt;!&ndash;android:id="@+id/chronometer"&ndash;&gt;-->
+<!--    &lt;!&ndash;    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--    &lt;!&ndash;    app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;    app:layout_constraintHorizontal_bias="0.5"&ndash;&gt;-->
+<!--    &lt;!&ndash;    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--    &lt;!&ndash;    app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    </androidx.constraintlayout.widget.ConstraintLayout>&ndash;&gt;-->
