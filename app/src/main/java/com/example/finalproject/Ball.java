@@ -7,7 +7,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Chronometer;
 
+import java.util.Random;
+import java.util.Timer;
 import java.util.jar.Attributes;
 
 public class Ball extends View {
@@ -23,7 +26,7 @@ public class Ball extends View {
     // draw pen
     Paint p = new Paint();
 
-    public Ball(Context context,AttributeSet set) {
+    public Ball(Context context, AttributeSet set) {
         super(context, set);
     }
     public Ball(Context context) {
@@ -31,8 +34,10 @@ public class Ball extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(final Canvas canvas) {
         super.onDraw(canvas);
+        Random random = new Random(1000);
+
         canvas.drawColor(Color.WHITE);
         //set the color
 
@@ -43,6 +48,42 @@ public class Ball extends View {
         p.setStyle(Paint.Style.FILL);
         p.setColor(Color.BLACK);
         canvas.drawRect(300, 600, 500, 800, p);
+        for (int i = 0; i < 5; i++) {
+            int a = random.nextInt(1000);
+            int b = random.nextInt(2000);
+            p.setStyle(Paint.Style.FILL);
+            p.setColor(Color.BLUE);
+            canvas.drawCircle(a,b,50,p);
+//            this.invalidate();
+//            Timer timer = new Timer();
+//            timer.schedule(new TimerTask() {
+//                @Override
+//                public void run() {
+//                    p.setStyle(Paint.Style.FILL);
+//                    p.setColor(Color.WHITE);
+//                    canvas.drawCircle(a,b,50,p);
+//                }
+//            },1000);
+
+//            try {
+//                Thread.sleep(300);
+//            } catch(InterruptedException ie) {
+//                System.out.println("error");
+//            }
+//            p.setStyle(Paint.Style.FILL);
+//            p.setColor(Color.WHITE);
+//            canvas.drawCircle(a,b,50,p);
+
+        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch(InterruptedException ie) {
+//            System.out.println("error");
+//        }
+
+
+
+
     }
 
     public boolean onTouchEvent(MotionEvent event) {
@@ -55,5 +96,10 @@ public class Ball extends View {
         }
         return true;
     }
+    public void timeCount(Chronometer chronometer) {
+        String time = chronometer.getText().toString();
+        System.out.println(time);
+    }
+
 
 }

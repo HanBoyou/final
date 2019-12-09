@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.widget.Chronometer;
 
 public class GameActivity extends AppCompatActivity {
+    private Chronometer chronometer;
+
+    public Chronometer getChronometer() {
+        return chronometer;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +22,17 @@ public class GameActivity extends AppCompatActivity {
         Ball ball1 = new Ball(this);
         ball.addView(ball1);
 
-        Chronometer chronometer = (Chronometer) findViewById(R.id.chronometer);
+        chronometer = findViewById(R.id.chronometer);
 //        chronometer.setTextSize(100);
         chronometer.start();
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+
+            public void onChronometerTick(Chronometer chronometer) {
+                String time = chronometer.getText().toString();
+                System.out.println(time);
+            }
+        });
 
 
     }
