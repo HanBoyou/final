@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -30,9 +31,8 @@ public class GameActivity extends AppCompatActivity {
 //        Ball ball1 = new Ball(this);
 //        ball.addView(ball1);
 //
-//        Chronometer chronometer = (Chronometer) findViewById(R.id.chronometer);
-////        chronometer.setTextSize(100);
-//        chronometer.start();
+      Chronometer chronometer = findViewById(R.id.);
+      chronometer.start();
 //
 //
 
@@ -54,7 +54,7 @@ public class GameActivity extends AppCompatActivity {
         private float cx = 50;
         private float cy = 50;
         private int radius = 20;
-        private Chronometer chronometer = findViewById(R.id.chronometer);
+        private Chronometer chronometer = findViewById(R.id.ch);
         private int seconds =
                 Integer.parseInt(chronometer.getText().toString().split(":")[0]) * 60
                 + Integer.parseInt(chronometer.getText().toString().split(":")[1]);
@@ -71,6 +71,10 @@ public class GameActivity extends AppCompatActivity {
             setFocusable(true);
             setFocusableInTouchMode(true);
             this.setKeepScreenOn(true);
+            Intent intent = getIntent();
+            if (intent != null && intent.hasExtra("difficulty")) {
+                difficulty = intent.getIntExtra("difficulty", R.id.radioButtonEasy);
+            } else difficulty = R.id.radioButtonEasy;
         }
 
 
@@ -79,9 +83,9 @@ public class GameActivity extends AppCompatActivity {
         public void run() {
             while (isRunning) {
                 long start = System.currentTimeMillis();
-                spawnObstacles();
-                moveObstacles();
-                deleteObstacles();
+//                spawnObstacles();
+//                moveObstacles();
+//                deleteObstacles();
                 draw();
                 long end = System.currentTimeMillis();
                 try {
@@ -146,7 +150,7 @@ public class GameActivity extends AppCompatActivity {
                 mCanvas = mHolder.lockCanvas();
                 if (mCanvas != null) {
                     mCanvas.drawColor(Color.WHITE);             //START DRAW
-                    drawObstacle();
+//                    drawObstacle();
                     revise();
                     mCanvas.drawCircle(cx, cy, radius, mPlayerPaint);
                 }
