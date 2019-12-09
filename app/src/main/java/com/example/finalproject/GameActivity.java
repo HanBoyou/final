@@ -17,13 +17,14 @@ import android.widget.Chronometer;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Random;
 public class GameActivity extends AppCompatActivity {
 
 //    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(new Game(this));
+
 //
 //        ConstraintLayout ball = findViewById(R.id.ball);
 //        Ball ball1 = new Ball(this);
@@ -37,7 +38,8 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    class Game extends SurfaceView implements SurfaceHolder.Callback, Runnable {
+    public class Game extends SurfaceView implements SurfaceHolder.Callback, Runnable {
+
         private int screenW;
         private int screenH;
         private SurfaceHolder mHolder;
@@ -56,6 +58,7 @@ public class GameActivity extends AppCompatActivity {
         private int seconds =
                 Integer.parseInt(chronometer.getText().toString().split(":")[0]) * 60
                 + Integer.parseInt(chronometer.getText().toString().split(":")[1]);
+        private Thread th;
 
 
         public Game(Context context) {
@@ -95,20 +98,26 @@ public class GameActivity extends AppCompatActivity {
 
         }
         private void deleteObstacles() {
+            for (RectF r : mObstacles) {
+                if (r.top >= screenH) {
+                    mObstacles.remove(r);
+                }
+            }
         }
         private void spawnObstacles() {
 
         }
 
-        class Spawner implements Runnable {
+        public class Spawner extends Thread implements Runnable {
             float leftLimit = 0;
             float rightLimit = screenW;
             float widthRange = screenW / 5;
             float minHeight = screenH / 5;
+            float maxHeight = screenH;
             float heightRange = screenH / 3 * 2;
             int maxInterval = 1000 - seconds * difficulty;
             int intervalRange = maxInterval / 2;
-            int number;
+            int number = 1 + seconds / 2;
             @Override
             public void run() {
                 try {
@@ -121,8 +130,14 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
             private RectF randomRectF() {
+                Random random = new Random(1000);
                 RectF r = new RectF();
-                r.set();
+                int left = random.nextInt((int) (rightLimit - widthRange));
+                int bottom = random.nextInt((int) (maxHeight - heightRange));
+                int right = random.nextInt((int) (left + widthRange));
+                int top = random.nextInt((int) (bottom + heightRange));
+                r.set(left, top, right, bottom);
+                return r;
             }
         }
 
@@ -179,6 +194,7 @@ public class GameActivity extends AppCompatActivity {
             mPlayerPaint.setAntiAlias(true);
             mPlayerPaint.setColor(Color.BLACK);
             t.start();
+//            th.start();
         }
 
         @Override
